@@ -4,7 +4,7 @@ module.exports = {
     desc: "Say hello to bot.",
     react: "🧣",
     category: "Core",
-    start: async(Miku, m,{pushName,prefix}) => {
+    start: async(Akeno, m,{pushName,prefix}) => {
         m.reply(`Hello *${pushName}* Senpai! I'm *Akeno*. How can I help you?`)
     }
 }
