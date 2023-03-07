@@ -169,7 +169,7 @@ module.exports = {
           ];
           let bmffg = {
             image: {url : "https://images4.alphacoders.com/917/917379.jpg"} ,
-            caption: `\n*「  Group Features Deactivation  」*\n\nPlease click the button below\n\n*NSFW/Antilink/Welcome*\n`,
+            caption: `\n*「  Group Features Activation  」*\n\nPlease click the button below\n\n*NSFW/Antilink/Welcome*\n`,
             footer: `*Akeno MD*`,
             buttons: buttonsntilink,
             headerType: 4,
