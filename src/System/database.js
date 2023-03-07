@@ -1,4 +1,4 @@
-const { sessionSchema } = require("../Database");
+const { sessionSchema } = require("../Handlers");
 
 module.exports = class Database {
   constructor() {}

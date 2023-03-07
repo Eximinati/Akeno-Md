@@ -1,5 +1,5 @@
 const { initAuthCreds, BufferJSON, proto } = require("@adiwajshing/baileys");
-const Database = require("./Database");
+const Database = require("./database");
 
 module.exports = class Authenication {
   /**

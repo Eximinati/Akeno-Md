@@ -1,8 +1,8 @@
-require("../botSettings");
-const config = require("../botSettings");
+require("../../botSettings");
+const config = require("../../botSettings");
 const mongoose = require("mongoose");
 
-const mdb= mongoose.createConnection(config.mongodb);
+const mongodb= mongoose.createConnection(config.mongodb);
 
 
 const GroupSchema = new mongoose.Schema({
@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
   ban: { type: String, default: "false" },
 });
 
-const gsc = mdb.model("Gsc", UserSchema); // Group database
-const usc =mdb.model("Usc", GroupSchema); // User database
+const gsc = mongodb.model("Gsc", UserSchema); // Group database
+const usc =mongodb.model("Usc", GroupSchema); // User database
 
 module.exports = { gsc, usc };

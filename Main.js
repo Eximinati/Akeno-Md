@@ -1,15 +1,15 @@
 require("./index.js");
 require("./botSettings.js");
 
-const { Collection, Function } = require("./lib");
+const { Collection, Function } = require("./src/Lib");
 const { isUrl } = Function;
 const axios = require("axios");
-const Func = require("./lib");
+const Func = require("./src/Lib");
 const chalk = require("chalk");
-const { color } = require("./lib/color");
+const { color } = require("./src/Lib/color");
 
 const cool = new Collection();
-const { gsc, usc } = require("./Database/schema.js");
+const { gsc, usc } = require("./src/Handlers/schema");
 const prefix = global.prefa;
 
 global.Levels = require("discord-xp");

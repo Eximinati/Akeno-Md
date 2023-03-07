@@ -45,18 +45,18 @@ const {
     fetchJson,
     await,
     sleep
-} = require('./lib/myfunc');
+} = require('./src/Lib/myfunc');
 const {
     imageToWebp,
     videoToWebp,
     writeExifImg,
     writeExifVid
-} = require('./lib/exif')
+} = require('./src/Lib/exif')
 const qrcode = require('qrcode')
 const {
     Collection,
     Simple
-} = require("./lib");
+} = require("./src/Lib");
 const {
     serialize,
     WAConnection
@@ -64,14 +64,14 @@ const {
 const Commands = new Collection()
 const {
     color
-} = require('./lib/color');
+} = require('./src/Lib/color');
 const prefix = global.prefa;
 Commands.prefix = prefa
 const mongoose = require("mongoose");
-const Auth = require('./System/Authentication');
+const Auth = require('./src/System/auth');
 
 const readCommands = () => {
-    let dir = path.join(__dirname, "./Commands")
+    let dir = path.join(__dirname, "./src/Commands")
     let dirs = fs.readdirSync(dir)
     let cmdlist = {}
     try {
@@ -464,7 +464,7 @@ async function startAkeno() {
         if (options.asSticker || /webp/.test(mime)) {
             let {
                 writeExif
-            } = require('./lib/exif')
+            } = require('./src/Lib/exif')
             let media = {
                 mimetype: mime,
                 data
@@ -580,7 +580,7 @@ async function startAkeno() {
         if (options.asSticker || /webp/.test(mime)) {
             let {
                 writeExif
-            } = require('./lib/sticker.js')
+            } = require('./src/Lib/sticker.js')
             let media = {
                 mimetype: mime,
                 data
