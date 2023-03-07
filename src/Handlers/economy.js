@@ -29,7 +29,8 @@ const mongoose = require("mongoose");
 mongoose.connect(mongodb, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const economySchema = new mongoose.Schema({
-  userId: String ,
+  name: {type: String} ,
+  id: { type: String, unique: true, required: true },
   wallet: { type: Number, default: 100, max: 9007199254740991 },
   bank: { type: Number, default: 50, max: 9007199254740991 },
   items: [{ itemName: String, description: String, price: Number, number: Number }],
