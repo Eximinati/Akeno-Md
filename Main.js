@@ -11,7 +11,7 @@ const { color } = require("./src/Lib/color");
 const cool = new Collection();
 const { gsc, usc } = require("./src/Handlers/schema");
 const prefix = global.prefa;
-global.botName = "Akeno Md"
+global.botName = "Akeno Md";
 global.Levels = require("discord-xp");
 Levels.setURL(mongodb);
 
@@ -93,7 +93,119 @@ module.exports = async (Akeno, m, commands, chatUpdate, store) => {
         ? m.message.extendedTextMessage.contextInfo.mentionedJid
         : [];
 
-    /*----------------------Add Configurations here(Eg: Antilink, NSFW, Ban etc.)-------------------- */
+    /*-----------------------------------Banning Configuration----------------------------------- */
+
+    if (!isCreator) {
+      let checkban =
+        (await gsc.findOne({
+          id: m.sender,
+        })) ||
+        (await new gsc({
+          id: m.sender,
+          name: m.pushName,
+        }).save());
+
+        if (isCmd && checkban.ban !== "false"){
+          return m.reply(
+            `You are *Banned* from using commands for *${checkban.reason}*.`
+          );
+        }
+    }
+
+
+    //------------------------------------------- Antilink Configuration --------------------------------------------//
+
+    let checkdata = await gsc.findOne({
+      id: m.from,
+    });
+    if (!checkdata) {
+      let newdata = new gsc({
+        id: m.from,
+        antilink: "false",
+      });
+    }
+    if (checkdata) {
+      let mongoschema = checkdata.antilink || "false";
+      if (m.isGroup && mongoschema == "true") {
+        linkgce = await Akeno.groupInviteCode(from);
+        if (budy.includes(`https://chat.whatsapp.com/${linkgce}`)) {
+          m.reply(
+            `This group's link detected! No issues.`
+          );
+        } else if (budy.includes(`https://chat.whatsapp`)) {
+          bvl = `Admin has sent a link so no issues.`;
+          if (isAdmin) return m.reply(bvl);
+          if (m.key.fromMe) return m.reply(bvl);
+          if (isCreator) return m.reply(bvl);
+          kice = m.sender;
+          await Akeno.groupParticipantsUpdate(m.from, [kice], "remove");
+          await Akeno.sendMessage(
+            from,
+            {
+              delete: {
+                remoteJid: m.from,
+                fromMe: false,
+                id: m.id,
+                participant: m.sender,
+              },
+            },
+            {
+              quoted: m,
+            }
+          );
+          await gsc.updateOne(
+            {
+              id: m.from,
+            },
+            {
+              antilink: "true",
+            }
+          );
+          Akeno.sendMessage(
+            from,
+            {
+              text: `\`\`\`「  Antilink System  」\`\`\`\n\n@${
+                kice.split("@")[0]
+              } Removed for sending WhatsApp group link in this group! Message has been deleted.`,
+              mentions: [kice],
+            },
+            {
+              quoted: m,
+            }
+          );
+        } else if (isUrl(m.text) && !icmd && !isAdmin && !isCreator) {
+          await Akeno.sendMessage(
+            from,
+            {
+              delete: {
+                remoteJid: m.from,
+                fromMe: false,
+                id: m.id,
+                participant: m.sender,
+              },
+            },
+            {
+              quoted: m,
+            }
+          );
+          m.reply(
+            `Antilink is on ! To use any link related commands use my actual prefix ( ${prefix} ) ! \n\nExample : ${prefix}igdl <link> or ${prefix}ytmp4 <link>`
+          );
+        } else {
+        }
+      }
+    }
+
+    //--------------------------------------------- NSFW Configuration -----------------------------------------------//
+
+    let nsfwstatus = await gsc.findOne({
+      id: m.from,
+    });
+    let NSFWstatus = "false";
+    if (nsfwstatus) {
+      NSFWstatus = nsfwstatus.switchNSFW || "false";
+    }
+
 
     /*-----------------------------------------------------------------------------------------------*/
 
@@ -112,10 +224,10 @@ module.exports = async (Akeno, m, commands, chatUpdate, store) => {
       ];
       let bmffg = {
         image: {
-          url: botImage1,
+          url: "https://images4.alphacoders.com/917/917379.jpg",
         },
         caption: Akenotext,
-        footer: `*${botName}*`,
+        footer: `*Akeno*`,
         buttons: Button,
         headerType: 4,
       };
@@ -237,6 +349,7 @@ module.exports = async (Akeno, m, commands, chatUpdate, store) => {
       flags,
       isAdmin,
       groupAdmin,
+      NSFWstatus,
       text,
       quoted,
       mentionByTag,
