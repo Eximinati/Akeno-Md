@@ -1,6 +1,7 @@
 module.exports = {
     name: "disable",
-    alias: ["disable" ],
+    alias: ["disable"],
+    usage:  `${prefa}disable config`,
     desc: "Disable the config",
     react: "🧣",
     category: "Dev",

@@ -15,6 +15,10 @@ const GroupSchema = new mongoose.Schema({
 const UserSchema = new mongoose.Schema({
   id: { type: String, unique: true, required: true },
   ban: { type: String, default: "false" },
+  name: { type: String },
+  gcname: { type: String },
+  reason: {type: String, default: "no reason" },
+  addedMods: { type: String, default: "false" }
 });
 
 const gsc = mongodb.model("Gsc", UserSchema); // Group database

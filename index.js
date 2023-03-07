@@ -186,9 +186,9 @@ async function startAkeno() {
         }
     })
 
-    Akeno.ev.on("group-participants.update", async (m) => {
-        welcomeLeft(Akeno, m);
-    });
+    // Akeno.ev.on("group-participants.update", async (m) => {
+    //     welcomeLeft(Akeno, m);
+    // });
 
     Akeno.ev.on("messages.upsert", async (chatUpdate) => {
         m = serialize(Akeno, chatUpdate.messages[0])

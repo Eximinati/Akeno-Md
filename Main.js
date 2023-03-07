@@ -11,7 +11,7 @@ const { color } = require("./src/Lib/color");
 const cool = new Collection();
 const { gsc, usc } = require("./src/Handlers/schema");
 const prefix = global.prefa;
-
+global.botName = "Akeno Md"
 global.Levels = require("discord-xp");
 Levels.setURL(mongodb);
 

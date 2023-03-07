@@ -23,6 +23,7 @@
     "@bochilteam/scraper": "^4.0.22-alpha.0",
     "@develoka/angka-terbilang-js": "^1.4.2",
     "@shineiichijo/mal-news-scraper": "^0.0.2",
+    "@shineiichijo/marika": "^2.0.6",
     "anime-wallpaper": "^1.1.1",
     "awesome-phonenumber": "^4.2.1",
     "axios": "^1.2.2",
@@ -35,14 +36,19 @@
     "figlet": "^1.5.2",
     "file-type": "^16.5.3",
     "fluent-ffmpeg": "^2.1.2",
+    "g-i-s": "^2.1.6",
     "human-readable": "^0.2.1",
+    "hxz-api": "^1.0.1",
+    "mathjs": "^11.6.0",
     "moment-timezone": "^0.5.40",
     "mongoose": "^6.9.1",
     "node-webpmux": "^3.1.5",
     "path": "^0.12.7",
     "pino": "^8.11.0",
     "qrcode": "^1.5.1",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "wa-sticker-formatter": "^4.4.4",
+    "youtube-yts": "^2.0.0"
   },
   "devDependencies": {
     "@hapi/boom": "^10.0.0",

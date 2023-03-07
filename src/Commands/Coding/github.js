@@ -1,56 +1,10 @@
-// const axios = require("axios");
-// module.exports = {
-//   name: "github",
-//   alias: ["gh"],
-//   desc: "Search an username on github",
-//   category: "Coding",
-//   usage: `gh <github username>`,
-//   react: "🍁",
-//   start: async (Akeno, m, { text, prefix, pushName, args,mime }) => {
-//     if (!args[0])
-//       return Akeno.sendMessage(
-//         m.from,
-//         { text: `Please provide a GitHub username !` },
-//         { quoted: m }
-//       );
-//     var newGCdesc = args.join(" ");
-
-//     var GHuserInfo = await axios
-//       .get(`https://api.github.com/users/${newGCdesc}`)
-//       .then((response) => response.data)
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//     let GhUserPP = GHuserInfo.avatar_url;
-//     let resText = ``;
-
-
-//     resText += `🌐 *URL:* http://github.com/${newGCdesc}\n`
-//     resText += `🌟 *Username:* ${GHuserInfo.name}\n`
-//     if (GHuserInfo.email !== null) resText += `📧 *Email:* ${GHuserInfo.email}\n`
-//     if (GHuserInfo.location !== null) resText += `📍 *Location:* ${GHuserInfo.location}\n`
-//     if (GHuserInfo.bio !== null) resText += `🚀 *Bio:* ${GHuserInfo.bio}\n`
-//     resText += `*👥 Followers:* ${GHuserInfo.followers}\n💫 *Following:* ${GHuserInfo.following}\n`
-//     resText += `💮 *Public Repositories:* ${GHuserInfo.public_repos}\n`
-
-//     await Akeno.sendMessage(
-//       m.from,
-//       {
-//         image: { url: GhUserPP, mimetype: "image/jpeg" },
-//         caption: resText,
-//       },
-//       { quoted: m }
-//     );
-//   },
-// };
-
 const axios = require("axios");
 module.exports = {
   name: "github",
   alias: ["gh"],
   desc: "Search an username on github",
   category: "Coding",
-  usage: `gh <github username>`,
+  usage: `${prefa}gh <github username>`,
   react: "🍁",
   start: async (Akeno, m, {text ,  prefix, pushName, args,mime }) => {
 const terms = text.trim().split('/')

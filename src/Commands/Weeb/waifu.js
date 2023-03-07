@@ -1,9 +1,10 @@
 module.exports = {
     name: "waifu",
-    alias: ["waifu" ],
+    alias: ["waifu"],
     desc: "Anything bettter thanwaifu?",
     react: "🧣",
-    category: "Utils",
+    usage: `${prefa}waifu`,
+    category: "Weeb",
     start: async(Akeno, m,{pushName,prefix}) => {
         //Do Something
     }
