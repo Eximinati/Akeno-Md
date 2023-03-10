@@ -3,7 +3,7 @@ module.exports = {
     name: "element",
     alias: ["element"],
     desc: "Gives you the info of given element",
-    react: "🧣",
+    react: "🔥",
     usage:  `${prefa}element @user`,
     category: "Educative",
     start: async(Akeno, m,{text ,pushName,prefix}) => {

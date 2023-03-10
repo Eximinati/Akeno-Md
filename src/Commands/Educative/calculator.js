@@ -3,7 +3,7 @@ module.exports = {
     name: "calculator",
     alias: ["calc"],
     desc: "Calulate simple math",
-    react: "🧣",
+    react: "🧮",
     usage:  `${prefa}calc <2*3/69 cm to inch>`,
     category: "Educative",
     start: async(Akeno, m,{text ,pushName,prefix}) => {

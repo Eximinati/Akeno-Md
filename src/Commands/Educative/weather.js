@@ -3,7 +3,7 @@ module.exports = {
     name: "weather",
     desc: "Give the weater of give city",
     alias:["wther"],
-    react: "🧣",
+    react: "🌪️",
     usage: `${prefa}weather [place_name]`,
     category: "Educative",
     start: async(Akeno, m,{text ,pushName,prefix}) => {

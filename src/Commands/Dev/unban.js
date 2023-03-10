@@ -4,7 +4,7 @@ module.exports = {
   name: "unban",
   alias: ["unban"],
   desc: "unaban the tagged user",
-  react: "🧣",
+  react: "✅",
   usage: `${prefa}unban @user`,
   category: "Dev",
   start: async (

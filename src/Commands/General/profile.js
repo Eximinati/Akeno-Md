@@ -6,6 +6,13 @@ module.exports = {
     usage: `${prefa}profile`,
     category: "General",
     start: async(Akeno, m,{pushName,prefix}) => {
-        //Do Something
+        let pfp
+        try {
+            pfp = await this.client.getProfilePicture(user)
+        } catch (err) {
+            m.reply(`Profile Picture not Accessible of ${username}`)
+            pfp =
+                'https://www.linkpicture.com/q/OIP-depositphotos-bgremover.png'
+        }
     }
 }

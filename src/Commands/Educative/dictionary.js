@@ -4,7 +4,7 @@ module.exports = {
     name: "urbandictionary",
     alias: ["dictionary", "define"],
     desc: "Define the given word",
-    react: "🧣",
+    react: "📚",
     usage:  `${prefa}define <word>`,
     category: "Educative",
     start: async (Akeno, m, { text, pushName, prefix }) => {

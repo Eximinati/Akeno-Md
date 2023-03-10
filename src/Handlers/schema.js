@@ -1,5 +1,5 @@
-require("../../botSettings");
-const config = require("../../botSettings");
+require("../settings/config");
+const config = require("../settings/config");
 const mongoose = require("mongoose");
 
 const mongodb= mongoose.createConnection(config.mongodb);
@@ -21,7 +21,19 @@ const UserSchema = new mongoose.Schema({
   addedMods: { type: String, default: "false" }
 });
 
-const gsc = mongodb.model("Gsc", UserSchema); // Group database
-const usc =mongodb.model("Usc", GroupSchema); // User database
+const modeschema = new mongoose.Schema({
+  id: {type: String , unique: false, required: true , default: "1" },
+  seletedCharacter: { type: String, default: "0" },
+  PMchatBot: { type: String, default: "false" },
+  privateMode: { type: String, default: "false" }
+});
 
-module.exports = { gsc, usc };
+
+  
+
+
+const gsc = mongodb.model("Gsc", UserSchema); // Group database
+const usc =mongodb.model("Usc", GroupSchema) // User database
+const checkmode =mongodb.model("checkmode", modeschema); // User database
+
+module.exports = { gsc, usc , checkmode};

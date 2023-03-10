@@ -1,4 +1,4 @@
-require("./botSettings");
+require("./src/settings/config");
 require("./Main");
 
 const pino = require('pino');
@@ -36,6 +36,7 @@ const store = makeInMemoryStore({
         stream: 'store'
     })
 });
+const {gsc} = require("./src/Handlers/schema")
 
 const {
     smsg,
@@ -613,13 +614,22 @@ async function startAkeno() {
     Akeno.parseMention = async (text) => {
         return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
     }
+    Akeno.username = async (jid) => {
+        let name = await gsc.findOne({ id: jid });
+        if (!name) {
+          unme = "user";
+        } else {
+          unme = name.name;
+        }
+        return unme;
+      };
 
     return Akeno
 }
 
 startAkeno();
 
-app.use("/", express.static(join(__dirname, "Frontend")));
+app.use("/", express.static(join(__dirname, "public")));
 app.get("/qr", async (req, res) => {
     const { session } = req.query;
     if (!session)

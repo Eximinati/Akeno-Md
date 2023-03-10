@@ -1,5 +1,5 @@
 require("./index.js");
-require("./botSettings.js");
+require("./src/settings/config");
 
 const { Collection, Function } = require("./src/Lib");
 const { isUrl } = Function;
@@ -9,12 +9,12 @@ const chalk = require("chalk");
 const { color } = require("./src/Lib/color");
 
 const cool = new Collection();
-const { gsc, usc } = require("./src/Handlers/schema");
+const { gsc, usc, checkmode } = require("./src/Handlers/schema");
 const prefix = global.prefa;
 global.botName = "Akeno Md";
 global.Levels = require("discord-xp");
 Levels.setURL(mongodb);
-
+global.devs= ["923087880256,923265825610"] //dont change it
 console.log(color("\nBrain has been connected Successfully !\n", "aqua"));
 
 module.exports = async (Akeno, m, commands, chatUpdate, store) => {
@@ -93,6 +93,8 @@ module.exports = async (Akeno, m, commands, chatUpdate, store) => {
         ? m.message.extendedTextMessage.contextInfo.mentionedJid
         : [];
 
+        if (!isGroup && cmd && !iscreator)
+      return m.reply("*You cant use commands in dm*");
     /*-----------------------------------Banning Configuration----------------------------------- */
 
     if (!isCreator) {
@@ -207,6 +209,46 @@ module.exports = async (Akeno, m, commands, chatUpdate, store) => {
     }
 
 
+    //--------------------------------------------- Mode Configuration -----------------------------------------------//
+
+    let modSTATUS = await gsc.findOne({
+      id: m.sender,
+    });
+    var modStatus = "false";
+    if (!modSTATUS) {
+      await gsc.create({ id: m.sender, addedMods: "false" });
+      modStatus = modSTATUS.addedMods || "false";
+    }
+    if (modSTATUS) {
+      modStatus = modSTATUS.addedMods || "false";
+    }
+
+    let botModeSet = await checkmode.findOne({
+      id: "1",
+    });
+    var workerMode = "false";
+    if (botModeSet) {
+      workerMode = botModeSet.privateMode || "false";
+      if (workerMode == "true") {
+        if (
+          !global.owner.includes(`${m.sender.split("@")[0]}`) &&
+          modStatus == "false" &&
+          isCmd &&
+          m.sender != botNumber
+        ) {
+          console.log("\nCommand Rejected ! Bot is in private mode !\n");
+          return;
+        }
+      }
+      if (workerMode == "self") {
+        if (m.sender != botNumber && isCmd) {
+          console.log("\nCommand Rejected ! Bot is in Self mode !\n");
+          return;
+        }
+      }
+    }
+
+   
     /*-----------------------------------------------------------------------------------------------*/
 
     const flags = args.filter((arg) => arg.startsWith("--"));

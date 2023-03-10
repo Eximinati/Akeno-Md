@@ -3,7 +3,7 @@ module.exports = {
     name: "trivia",
     alias: ["trivia"],
     desc: "Gives you question according to the given level",
-    react: "🧣",
+    react: "🧠",
     usage: `${prefa}trivia [easy/medium/hard]`,
     category: "Educative",
     start: async(Akeno, m,{text,pushName,prefix}) => {
