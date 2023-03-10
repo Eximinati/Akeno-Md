@@ -5,7 +5,7 @@ module.exports = {
   name: "emojimix",
   alias: ["combine", "emoji_kitchen"],
   desc: "To combine two emojis and get a new image",
-  category: "utilities",
+  category: "Utilities",
   usage: `emoji <emoji1>+<emoji2>`,
   react: "🍁",
   start: async (Akeno, m, { text, prefix, args, reply,pushName }) => {
