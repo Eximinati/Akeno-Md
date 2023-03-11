@@ -9,7 +9,7 @@ module.exports = {
   category:"Economy",
   cool:28800,
   react:"✅",
-    start:async(client,m,{command,prefix,pushname , pushName,args})=>{
+    start:async(Akeno,m,{command,prefix,pushname , pushName,args})=>{
 
       if (!m.from.endsWith("@g.us")) {
         return m.reply("Please use this command in a group.");
