@@ -1,5 +1,4 @@
-const economyModel = require('../../Handlers/economy')
-const Group = require("../../Handlers/group")
+const economyModel = require("../../Handlers/economic");
 
 module.exports = {
     name: 'leaderboard',
@@ -24,4 +23,3 @@ module.exports = {
         await client.sendMessage(m.from , { text: response })
     }
 }
-

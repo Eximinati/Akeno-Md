@@ -1,5 +1,4 @@
-// const  items = require("../../../models/shop");
-const economyJs = require('../../Handlers/economy')
+const  items = require("../../Handlers/shop");
 const Group = require("../../Handlers/group")
 
 module.exports = {

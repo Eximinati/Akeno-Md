@@ -26,11 +26,10 @@ module.exports = Economy*/
 
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongodb, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const economySchema = new mongoose.Schema({
-  name: {type: String} ,
-  id: { type: String, unique: true, required: true },
+  userId: String ,
   wallet: { type: Number, default: 100, max: 9007199254740991 },
   bank: { type: Number, default: 50, max: 9007199254740991 },
   items: [{ itemName: String, description: String, price: Number, number: Number }],

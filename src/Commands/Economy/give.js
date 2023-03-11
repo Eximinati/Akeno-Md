@@ -1,4 +1,4 @@
-const economyJs = require('../../Handlers/economy')
+const economyJs = require('../../Handlers/economic')
 const Group = require("../../Handlers/group")
 module.exports = {
   name: 'give',

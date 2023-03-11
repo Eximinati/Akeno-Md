@@ -1,6 +1,6 @@
-const economyJs = require('../../Handlers/economy')
-const Group = require("../../Handlers/group")
+const economyJs = require('../../Handlers/economic')
 const moment = require('moment-timezone');
+const Group = require("../../Handlers/group")
 
 module.exports = {
   name: 'daily',

@@ -1,5 +1,4 @@
-const Economy = require('../../Handlers/economy')
-const Group = require("../../Handlers/group")
+const Economy = require("../../Handlers/economic");
 
 module.exports = {
   name: "resetall",

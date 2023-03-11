@@ -1,5 +1,5 @@
-const economyJs = require('../../Handlers/economy')
-const Group = require("../../Handlers/group")
+const Group = require("../../Handlers/group");
+
 module.exports = {
     name: 'disableconomy',
     alias:["disableconomy"],

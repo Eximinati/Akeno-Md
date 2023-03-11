@@ -1,4 +1,4 @@
-const Player = require('../../Handlers/economy')
+const Player = require("../../Handlers/economic");
 const Group = require("../../Handlers/group")
 
 module.exports = {
