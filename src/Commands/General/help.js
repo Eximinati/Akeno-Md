@@ -71,7 +71,7 @@ let cm=commands.keys()
           greeting = "Konbanwa";
         }
 
-        console.log(greeting);
+        // console.log(greeting);
 
         let txt = `
 🤍 ${greeting} senpai 🤍
