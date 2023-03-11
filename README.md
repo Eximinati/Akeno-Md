@@ -4,7 +4,7 @@
     <img src="https://i.pinimg.com/564x/a1/83/38/a183388b010c4a47c828ecc20d27b79c.jpg" alt="Ari-Ani" />
 </div>
 
-<h1 align="center">Ari-Ani</h1>
+<h1 align="center">Akeno</h1>
 
 <p align="center">
     <strong>MULTI DEVICE WHATSAPP BOT WITH COOL FEATURES</strong>
